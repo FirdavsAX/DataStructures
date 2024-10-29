@@ -1,35 +1,80 @@
-﻿class SinglyLinkedListNode
+﻿using DataStructures.DataStructures;
+
+
+
+
+
+static void TestSinglyLinkedList()
 {
-    public int Data { get; private set; }
-    public SinglyLinkedListNode Next { get; set}
-    public SinglyLinkedListNode(int data)
-    {
-        Data = data;
-        Next = null;
-    }
+    // Create a new instance of the SinglyLinkedList
+    SinglyLinkedList list = new SinglyLinkedList();
+
+    // Adding elements to the list
+    Console.WriteLine("Adding elements to the list:");
+    list.Add(10);
+    list.Add(20);
+    list.Add(30);
+    list.Display(); // Expected output: 10 -> 20 -> 30 -> null
+
+    // Searching for elements
+    Console.WriteLine("Searching for elements:");
+    Console.WriteLine($"Searching for 20: {list.Search(20)}"); // Expected output: true
+    Console.WriteLine($"Searching for 40: {list.Search(40)}"); // Expected output: false
+
+    // Removing an element
+    Console.WriteLine("Removing an element:");
+    list.Remove(20);
+    list.Display(); // Expected output: 10 -> 30 -> null
+
+    // Attempting to remove a non-existent element
+    Console.WriteLine("Attempting to remove a non-existent element (40):");
+    list.Remove(40);
+    list.Display(); // Expected output: 10 -> 30 -> null
+
+    // Removing the head element
+    Console.WriteLine("Removing the head element (10):");
+    list.Remove(10);
+    list.Display(); // Expected output: 30 -> null
+
+    // Removing the last element
+    Console.WriteLine("Removing the last element (30):");
+    list.Remove(30);
+    list.Display(); // Expected output: null
 }
-class SinglyLinkedList
+static void TestDoublyLinkedList()
 {
-    public SinglyLinkedListNode Head { get; set; }
-    public void Add(int data)
-    {
-        SinglyLinkedListNode newNode = new SinglyLinkedListNode(data); 
-        
-        if (Head != null)
-        {
-            Head = newNode;
-        }
-        else
-        {
-            SinglyLinkedListNode current = Head;
+    // Create a new instance of the DoublyLinkedList
+    DoublyLinkedList list = new DoublyLinkedList();
 
-            while (current != null)
-            {
-                current = current.Next;
-            }
-            
-            current.Next = newNode;
-        }
+    // Adding elements to the list
+    Console.WriteLine("Adding elements to the list:");
+    list.Add(10);
+    list.Add(20);
+    list.Add(30);
+    list.PrintList(); // Expected output: 10 20 30 
 
-    }
+    // Print the list in reverse
+    Console.WriteLine("Printing the list in reverse:");
+    list.PrintReverse(); // Expected output: 30 20 10 
+
+    // Removing an element
+    Console.WriteLine("Removing an element (20):");
+    list.Remove(20);
+    list.PrintList(); // Expected output: 10 30 
+
+    // Attempting to remove a non-existent element
+    Console.WriteLine("Attempting to remove a non-existent element (40):");
+    list.Remove(40);
+    list.PrintList(); // Expected output: 10 30 
+
+    // Removing the head element
+    Console.WriteLine("Removing the head element (10):");
+    list.Remove(10);
+    list.PrintList(); // Expected output: 30 
+
+    // Removing the last element
+    Console.WriteLine("Removing the last element (30):");
+    list.Remove(30);
+    list.PrintList(); // Expected output: (empty list)
+
 }

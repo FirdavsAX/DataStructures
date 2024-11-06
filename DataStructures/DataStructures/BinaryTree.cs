@@ -46,17 +46,4 @@ public class BinaryTree
 
         return root;
     }
-
-    public void InOrderDisplay(TreeNode node)
-    {
-        if (node == null)
-        {
-            return;
-        }
-
-        InOrderDisplay(node.Left);
-        Console.WriteLine(node.Value);
-        InOrderDisplay(node.Right);
-    }
-
 }

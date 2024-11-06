@@ -1,9 +1,36 @@
 ﻿using DataStructures.DataStructures;
+using DataStructures.Samples;
 
+TreeSample.CheckBinaryTreeOrderDisplays();
 
+static void TestStackAndQueue()
+{
+    // Test Stack
+    Console.WriteLine("Testing Stack:");
+    Stack stack = new Stack();
+    stack.Push(10);
+    stack.Push(20);
+    stack.Push(30);
+    Console.WriteLine($"Top item: {stack.Peek()}"); // Expected output: 30
 
+    while (!stack.IsEmpty())
+    {
+        Console.WriteLine($"Popped item: {stack.Pop()}");
+    }
 
+    // Test Queue
+    Console.WriteLine("\nTesting Queue:");
+    Queue queue = new Queue();
+    queue.Enqueue(10);
+    queue.Enqueue(20);
+    queue.Enqueue(30);
+    Console.WriteLine($"Front item: {queue.Peek()}"); // Expected output: 10
 
+    while (!queue.IsEmpty())
+    {
+        Console.WriteLine($"Dequeued item: {queue.Dequeue()}");
+    }
+}
 static void TestSinglyLinkedList()
 {
     // Create a new instance of the SinglyLinkedList
@@ -76,5 +103,4 @@ static void TestDoublyLinkedList()
     Console.WriteLine("Removing the last element (30):");
     list.Remove(30);
     list.PrintList(); // Expected output: (empty list)
-
 }
